@@ -1,0 +1,29 @@
+---
+title: "Exploración Vivero"
+author: "Merlin Harold"
+date: "20/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(tidyverse)
+library(kableExtra)
+```
+
+## Introducción
+
+### Origen de los datos:
+
+Los datos se obtuvieron del la base de datos de investigaciones de Anthurium de la **UICN** del [siguiente repositorio](https://github.com/rfordatascience/tidytuesday) de GitHub.
+
+
+```{r, echo=FALSE}
+plants <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/plants.csv')
+actions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/actions.csv')
+threats <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-08-18/threats.csv')
+```
+
+## Datos en Sudamérica:
+El número de las especies del vivero de sudamérica en la base de datos son de `r plants %>% dplyr::filter(continent == "South America") %>% nrow()` especies
+
